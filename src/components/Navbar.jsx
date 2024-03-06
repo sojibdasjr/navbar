@@ -11,6 +11,11 @@ import { FaXmark, FaBars } from "react-icons/fa6";
 // 2. tailwild
 //3 react-icons
 // 4react-scroll
+
+// also add in index.css or App.css
+// header {
+//     z-index: 10001 !important;
+//   }
 // ...............................................................
 
 const Navbar = () => {
@@ -28,7 +33,9 @@ const Navbar = () => {
         setIsSticky(false);
       }
     };
+
     window.addEventListener("scroll", handleSticky);
+
     return () => {
       window.addEventListener("scroll", handleSticky);
     };
@@ -46,7 +53,7 @@ const Navbar = () => {
       <nav
         className={`py-4 lg:px-14 px-4 ${
           isSticky
-            ? "static top-0 left-0 right-0 border-b text-white duration-300"
+            ? "static top-0 left-0 right-0 borderc bg-white text-white duration-300"
             : ""
         }`}
       >
