@@ -16,6 +16,8 @@ import { FaXmark, FaBars } from "react-icons/fa6";
 // header {
 //     z-index: 10001 !important;
 //   }
+
+// use main div mt-16 for mobile device
 // ...............................................................
 
 const Navbar = () => {
@@ -49,11 +51,11 @@ const Navbar = () => {
     { page: "Service", path: "/service" },
   ];
   return (
-    <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0  ">
+    <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0 ">
       <nav
-        className={`py-4 lg:px-14 px-4 ${
+        className={`py-4 lg:px-14 px-4  ${
           isSticky
-            ? "static top-0 left-0 right-0 border-b border bg-white text-white duration-300"
+            ? "static top-0 left-0 right-0 border-b backdrop-filter backdrop-blur-md text-white shadow-lg duration-300"
             : ""
         }`}
       >
@@ -83,7 +85,7 @@ const Navbar = () => {
           </ul>
 
           {/* btn for large device // if you dont want just comment btn div */}
-          <div className="space-x-12 hidden lg:flex items-center">
+          {/* <div className="space-x-12 hidden lg:flex items-center">
             <Link
               to="/"
               className="hidden lg:flex items-center text-brandPrimary hover:text-grey900"
@@ -93,7 +95,7 @@ const Navbar = () => {
             <button className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300 rounded hover:bg-neutralDGrey">
               SignUp
             </button>
-          </div>
+          </div> */}
 
           {/* menu btn for only mobile device */}
           <div className="md:hidden">
@@ -112,7 +114,7 @@ const Navbar = () => {
 
         {/* Nav item for mobile device */}
         <div
-          className={`space-y-4 px-4 mt-16 py-7 bg-brandPrimary ${
+          className={`space-y-4 px-4 mt-16 py-7 backdrop-blur ${
             isMenuOpen ? " fixed top-0 right-0 left-0" : "hidden"
           }`}
         >
@@ -123,7 +125,7 @@ const Navbar = () => {
               smooth={true}
               offset={-100}
               key={path}
-              className=" block  text-white hover:text-grey900 first:font-medium"
+              className=" block text-grey900 hover:text-white first:font-medium"
             >
               {page}
             </NavLink>
