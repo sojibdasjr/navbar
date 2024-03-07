@@ -9,8 +9,8 @@ import { FaXmark, FaBars } from "react-icons/fa6";
 // if you copy the navbar for your project you must install
 // 1. react router dom
 // 2. tailwild
-//3 react-icons
-// 4react-scroll
+//3 .react-icons
+//4. react-scroll
 
 // also add in index.css or App.css
 // header {
@@ -43,17 +43,17 @@ const Navbar = () => {
 
   // navbar item
   const navItems = [
-    { Link: "Home", path: "/" },
-    { Link: "Contact", path: "/contact" },
-    { Link: "About", path: "/about" },
-    { Link: "Service", path: "/service" },
+    { page: "Home", path: "/" },
+    { page: "Contact", path: "/contact" },
+    { page: "About", path: "/about" },
+    { page: "Service", path: "/service" },
   ];
   return (
-    <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0">
+    <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0  ">
       <nav
         className={`py-4 lg:px-14 px-4 ${
           isSticky
-            ? "static top-0 left-0 right-0 borderc bg-white text-white duration-300"
+            ? "static top-0 left-0 right-0 border-b border bg-white text-white duration-300"
             : ""
         }`}
       >
@@ -68,21 +68,21 @@ const Navbar = () => {
 
           {/* Nav items for large devices  */}
           <ul className="md:flex space-x-12 hidden">
-            {navItems.map(({ Link, path }) => (
+            {navItems.map(({ page, path }) => (
               <NavLink
                 to={path}
                 spy={true}
                 smooth={true}
                 offset={-100}
                 key={path}
-                className="text-base block text-grey900 hover:text-brandPrimary first:font-medium"
+                className="  rounded block text-grey900 hover:text-brandPrimary focus:font-bold "
               >
-                {Link}
+                {page}
               </NavLink>
             ))}
           </ul>
 
-          {/* btn for large device */}
+          {/* btn for large device // if you dont want just comment btn div */}
           <div className="space-x-12 hidden lg:flex items-center">
             <Link
               to="/"
@@ -116,7 +116,7 @@ const Navbar = () => {
             isMenuOpen ? " fixed top-0 right-0 left-0" : "hidden"
           }`}
         >
-          {navItems.map(({ Link, path }) => (
+          {navItems.map(({ page, path }) => (
             <NavLink
               to={path}
               spy={true}
@@ -125,7 +125,7 @@ const Navbar = () => {
               key={path}
               className=" block  text-white hover:text-grey900 first:font-medium"
             >
-              {Link}
+              {page}
             </NavLink>
           ))}
         </div>
