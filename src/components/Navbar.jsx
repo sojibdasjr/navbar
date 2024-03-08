@@ -71,16 +71,19 @@ const Navbar = () => {
           {/* Nav items for large devices  */}
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ page, path }) => (
-              <NavLink
-                to={path}
-                spy={true}
-                smooth={true}
-                offset={-100}
+              <li
                 key={path}
-                className="  rounded block text-grey900 hover:text-brandPrimary focus:font-bold "
+                className="  rounded block text-grey900 hover:text-brandPrimary "
               >
-                {page}
-              </NavLink>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                  to={path}
+                >
+                  {page}
+                </NavLink>
+              </li>
             ))}
           </ul>
 
@@ -92,7 +95,7 @@ const Navbar = () => {
             >
               Login
             </Link>
-            <button className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300 rounded hover:bg-neutralDGrey">
+            <button className="bg-slate-200 text-black py-2 px-4 transition-all duration-300 rounded hover:bg-neutralDGrey">
               SignUp
             </button>
           </div> */}
@@ -119,16 +122,19 @@ const Navbar = () => {
           }`}
         >
           {navItems.map(({ page, path }) => (
-            <NavLink
-              to={path}
-              spy={true}
-              smooth={true}
-              offset={-100}
+            <li
               key={path}
-              className=" block text-grey900 hover:text-white first:font-medium"
+              className="  rounded block text-grey900 hover:text-brandPrimary "
             >
-              {page}
-            </NavLink>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to={path}
+              >
+                {page}
+              </NavLink>
+            </li>
           ))}
         </div>
       </nav>
